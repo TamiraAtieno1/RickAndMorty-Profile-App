@@ -6,7 +6,13 @@ const Character =() => {
 
   return (
     <div className="user">
-        <h1>Showing { character.name }</h1>
+        <h1 className="text-white">Showing { character.name }</h1>
+        <p className="text-white">
+          <div>{character.status}</div>
+          <div>{character.species}</div>
+          <div>{character.gender}</div>
+          <div>{character.origin.name}</div>
+        </p>
     </div>
 );
   

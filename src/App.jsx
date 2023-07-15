@@ -8,10 +8,10 @@ function App() {
     <>
     
     <div>
-      <Link to="/">Home</Link>
+      <Link to="/" class="text-white">Home</Link>
     </div>
     <div>
-      <Link to="/character">Characters</Link>
+      <Link to="/character" class="text-white">Characters</Link>
     </div>
     </>
   )
