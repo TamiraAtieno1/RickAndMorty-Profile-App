@@ -11,13 +11,8 @@ function App() {
       <Link to="/">Home</Link>
     </div>
     <div>
-      <Link to="/users">Characters</Link>
+      <Link to="/character">Characters</Link>
     </div>
-    <div>
-      <Link to="/users/:id">Details</Link>
-    </div>
-    
-
     </>
   )
 }

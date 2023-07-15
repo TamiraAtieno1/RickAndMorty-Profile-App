@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import './index.css'
-import UserList from './components/users/Userlist.jsx'
-import User from './components/users/User.jsx'
+import CharacterList from './components/users/CharacterList.jsx'
+import Character from './components/users/Character.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -12,12 +12,12 @@ const routes = createBrowserRouter([
     element: <App/>
   },
   {
-    path: '/users',
-    element: <UserList/>
+    path: '/character',
+    element: <CharacterList/>
   },
   {
-    path: '/users/:id',
-    element: <User/>
+    path: '/character/:id',
+    element: <Character/>
   },
 ])
 
