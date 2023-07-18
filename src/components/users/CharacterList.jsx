@@ -1,23 +1,32 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
+
 
 
 const CharacterList = ()=> {
-    const [characters, setCharacters] = useState ([])
 
-    const fetchCharacters = async ()=>{
-        const response = await fetch("https://rickandmortyapi.com/api/character")
-        const data = await response.json()
-        console.log(data.results)
-        setCharacters(data.results)
-    }
+    const { data: characters, loading} = useFetch("https://rickandmortyapi.com/api/character")
 
-    useEffect(()=>{
-        fetchCharacters()
-    }, [])
+    // const [characters, setCharacters] = useState ([])
+
+    // const fetchCharacters = async ()=>{
+    //     const response = await fetch("https://rickandmortyapi.com/api/character")
+    //     const data = await response.json()
+    //     console.log(data.results)
+    //     setCharacters(data.results)
+    // }
+
+    // useEffect(()=>{
+    //     fetchCharacters()
+    // }, [])
 
     const [search, setSearch] = useState('')
     console.log(search)
+
+    // if (loading) {
+    //     return <h1>Loading...</h1>
+    // }
 
     return (
         <>
@@ -26,7 +35,7 @@ const CharacterList = ()=> {
             <input type="text" className="px-2 py-1 rounded"
             onChange={e => setSearch(e.target.value)} placeholder="Search characters..."/>
         </form>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap ">
             {characters.filter((character)=>{
                 return search.toLowerCase() === '' ? character : character.name.toLowerCase().includes(search);
             }).map((character)=>{
@@ -39,8 +48,8 @@ const CharacterList = ()=> {
                             <p className="text-sm text-black font-semibold">
                             {character.name}
                             </p>
-                            </div>
-                            <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
+                            </div> 
+                            <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" >
                             <Link to={`/character/${character.id}`} state={character}>View Character</Link>
                             </button>
                     </div>
