@@ -24,9 +24,9 @@ const CharacterList = ()=> {
     const [search, setSearch] = useState('')
     console.log(search)
 
-    // if (loading) {
-    //     return <h1>Loading...</h1>
-    // }
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <>
@@ -36,7 +36,7 @@ const CharacterList = ()=> {
             onChange={e => setSearch(e.target.value)} placeholder="Search characters..."/>
         </form>
         <div className="flex flex-wrap ">
-            {characters.filter((character)=>{
+            {characters.results.filter((character)=>{
                 return search.toLowerCase() === '' ? character : character.name.toLowerCase().includes(search);
             }).map((character)=>{
                 return (

@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import './index.css'
 import CharacterList from './components/users/CharacterList.jsx'
-import Character from './components/users/Character.jsx'
+import Characters from './components/users/Characters.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const routes = createBrowserRouter([
   },
   {
     path: '/character/:id',
-    element: <Character/>
+    element: <Characters/>
   },
 ])
 

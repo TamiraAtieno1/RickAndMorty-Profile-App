@@ -2,7 +2,7 @@ import React from "react"
 import { useLocation } from "react-router-dom"
 import { useRef } from "react"
 
-const Character =() => {
+const Characters =() => {
   const character = useLocation().state
 
   const colRef = useRef(null)
@@ -16,9 +16,9 @@ const Character =() => {
         <h1 className="text-white">Name:{ character.name }</h1>
         <p className="text-white">
           <div><img src={character.image} alt={character.name} /></div>
-          <div>{character.status}</div>
-          <div>{character.species}</div>
-          <div>{character.gender}</div>
+          <div>Status:{character.status}</div>
+          <div>Species:{character.species}</div>
+          <div>Gender:{character.gender}</div>
           <div>{character.origin.name}</div>
           <div  ref={colRef}>
             <button className="button rounded-full border text-red-600" onClick={handleColorChange}>
@@ -30,4 +30,4 @@ const Character =() => {
 );
   
 }
-export default Character;
+export default Characters;
